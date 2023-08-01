@@ -1,0 +1,85 @@
+.username:valid ~ span,
+.username:focus ~ span{
+    color: black;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+.dark .username:valid ~ span,
+.dark .username:focus ~ span{
+    color: #fff;
+}
+.username:valid ~ i,
+.username:focus ~ i{
+    height: 40px;
+    transition-duration: 0.2s;
+}
+.username:valid ~ span .showed,
+.username:focus ~ span .showed{
+    display: inline;
+}
+
+.card::before{
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    height: 400px;
+    width: 380px;
+    background: linear-gradient(0deg,transparent,transparent,#02969C,#02969C,#02969C);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    
+}
+.card::after{
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    height: 400px;
+    width: 380px;
+    background: linear-gradient(0deg,transparent,transparent,#02969C,#02969C,#02969C);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+.different{
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+.different::before{
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    height: 400px;
+    width: 380px;
+    background: linear-gradient(0deg,transparent,transparent,#F89A23,#F89A23,#F89A23);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s;
+}
+.different::after{
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    height: 400px;
+    width: 380px;
+    background: linear-gradient(0deg,transparent,transparent,#F89A23,#F89A23,#F89A23);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -4.5s;
+}
+@keyframes animate {
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

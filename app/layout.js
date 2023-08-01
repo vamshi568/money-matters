@@ -1,5 +1,11 @@
+'use client'
+import { useState } from 'react'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { MaterialUISwitch } from '@/components/loaders'
+import Navbar from '@/components/navbar'
+import { usePathname } from 'next/navigation'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -9,9 +15,20 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  return (
+  const [mode,setMode]=useState(false)
+  const params=usePathname()
+  
+    return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${mode?'dark':null}`}>
+        <div className='flex'>
+          {params!=='/login'?<Navbar/>:null}
+        {children}
+          </div>
+        <button onClick={()=>setMode(!mode)} className=' fixed left-5 bottom-28'>
+          <MaterialUISwitch/>
+        </button>
+        </body>
     </html>
   )
 }

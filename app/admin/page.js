@@ -3,50 +3,35 @@ import { fetchDataFromApi } from "@/components/apis";
 import BarChart from "@/components/barchart";
 import Headbar from "@/components/headbar";
 import Lasttransaction from "@/components/lasttrans";
-import Cookies from "js-cookie";
+import { Circleloading } from "@/components/loaders";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Admin from "./admin/page";
-import { Circleloading } from "@/components/loaders";
-
-export default function Home() {
+const Admin = () => {
   const [credit, setCredit] = useState(0);
   const [debit, setDebit] = useState(0);
   const [isLoading,setIsloading] = useState(false)
-
   const router = useRouter();
   const fetchData = async () => {
-
     setIsloading(true)
 
     const data = await fetchDataFromApi(
-      "credit-debit-totals",
+      "transaction-totals-admin",
       "GET"
     );
     setCredit(
-      data.totals_credit_debit_transactions[data.totals_credit_debit_transactions.length - 1]
+      data.transaction_totals_admin[data.transaction_totals_admin.length - 1]
         .sum
     );
-    setDebit(data.totals_credit_debit_transactions[0].sum);
+    setDebit(data.transaction_totals_admin[0].sum);
     setIsloading(false)
 
   };
   useEffect(() => {
     fetchData();
-    if (Cookies.get("user-id") === undefined) {
-      router.replace("/login");
-     
-    } 
   }, []);
-  if (Cookies.get("user-id") === '3') {
-    return <Admin/>
-  }
-  
   return (
-    <>
-      <div className="w-full bg-[#F5F7FA] dark:bg-slate-900">
+    <div className="w-full bg-[#F5F7FA] dark:bg-slate-900">
       <Circleloading open={isLoading}/>
-
         <Headbar name="Account" />
 
         <div className="dark:text-white flex gap-6 px-10">
@@ -73,6 +58,7 @@ export default function Home() {
         <BarChart/>
         
       </div>
-    </>
-  );
+  )
 }
+
+export default Admin
