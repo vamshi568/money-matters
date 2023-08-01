@@ -12,7 +12,6 @@
 - [APIs](#apis)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
