@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     return (
     <html lang="en">
       <head>
-      <link rel="icon" href="grouplogo.png" />
+      <link rel="icon" href="logo.svg" />
 
       </head>
       <body className={`${inter.className}`}>
