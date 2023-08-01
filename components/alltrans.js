@@ -145,7 +145,7 @@ setprofile(res1.users)
             </div>
           </div>
         </Backdrop>
-            </div>`2`
+            </div>
             {drop&&<Dropdown id={totaldata.id} handelchange={()=>setdrop(false)} body={totaldata} open={drop}/>
 }
 

@@ -23,12 +23,13 @@ const Transactions = () => {
     }
   }
   return (
-    <div className='w-full dark:bg-slate-900'><Headbar name='Transactions'/>
-    <div className='flex text-[#718EBF] dark:text-white gap-8 py-6 px-10'>
+    <div className='w-full min-h-screen h-auto  dark:bg-slate-900'><Headbar name='Transactions'/>
+    <div className='flex text-[#718EBF]  dark:text-white gap-8 py-6 px-10'>
       <p className={`${options==='All Transactions'?'activetag':''} cursor-pointer py-2 px-3`} onClick={()=>setOptions('All Transactions')}>All Transactions</p>
       <p className={`${options==='Debit'?'activetag':''} cursor-pointer py-2 px-3`} onClick={()=>setOptions('Debit')}>Debit</p>
       <p className={`${options==='Credit'?'activetag':''} cursor-pointer py-2 px-3`} onClick={()=>setOptions('Credit')}>Credit</p>
       </div>
+      
       {page()}
     </div>
   )

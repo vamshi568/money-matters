@@ -22,7 +22,6 @@ const Login = () => {
     const res=await loginData('get-user-id',body,email.includes('admin')?'admin':null)
     if (res !==null){
       if (res.get_user_id.length>0){
-
         Cookies.set("user-id",res.get_user_id[0].id)
         route.replace('/')
 

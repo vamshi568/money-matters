@@ -44,7 +44,7 @@ export default function Home() {
   
   return (
     <>
-      <div className="w-full bg-[#F5F7FA] dark:bg-slate-900">
+      <div className="w-full min-h-screen h-auto bg-[#F5F7FA] dark:bg-slate-900">
       <Circleloading open={isLoading}/>
 
         <Headbar name="Account" />
